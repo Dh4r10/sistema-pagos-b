@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import TipoUsuario
+from .models import *
 from .models import AuthUser # Asegúrate de importar tu modelo personalizado
 from django.contrib.auth.hashers import make_password
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
@@ -27,18 +27,15 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
 # this serializer is already with url
 
-class TemasSerializer(serializers.ModelSerializer):
+class TipoUsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = TipoUsuario
         fields = '__all__'
 
 class AuthUserSerializer(serializers.ModelSerializer):
-    # Campo para proporcionar el ID del perfil al crear el usuario
-    id_tipo_usuario = serializers.PrimaryKeyRelatedField(queryset=TipoUsuario.objects.all(), write_only=True)
-
     class Meta:
         model = AuthUser
-        fields = ('username','password', 'id_tipo_usuario')
+        fields = ('__all__')
 
     def create(self, validated_data):
         # Extraemos el valor del ID del perfil

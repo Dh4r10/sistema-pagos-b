@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders',
-    'app',
+    'application',
 ]
 
 REST_FRAMEWORK = {
@@ -132,7 +132,7 @@ DATABASES = {
 
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sistema_pagos_unidad_1',
+        'NAME': 'ejemplo',
         'USER': 'root',
         'PASSWORD': '12345678',
         'HOST': 'servidor-jami.clwiks6ew97v.us-east-2.rds.amazonaws.com',  # O la dirección de tu servidor MariaDB
@@ -182,7 +182,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'app.AuthUser'
+AUTH_USER_MODEL = 'application.AuthUser'
 
 # CORS
 

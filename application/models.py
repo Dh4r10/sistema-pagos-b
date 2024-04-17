@@ -7,7 +7,7 @@ class AuthUser(AbstractUser):
     tipo_usuario = models.ForeignKey(
         'TipoUsuario',  
         on_delete=models.CASCADE,
-        related_name='tipos',
+        related_name='tipo_usuario',
         blank=True,
         null=True,
     )
@@ -16,12 +16,7 @@ class AuthUser(AbstractUser):
     groups = None
     user_permissions = None
 
-    # # Añade estos atributos para evitar el conflicto con los atributos de AbstractUser
-    groups = None
-    user_permissions = None
-
 class TipoUsuario(models.Model):
-    id = models.AutoField (primary_key=True)
     nombre = models.CharField(max_length=50, unique=True, null=False)
     descripcion = models.CharField(max_length=100, null=False)
     estado = models.BooleanField(default=True, null=False)
