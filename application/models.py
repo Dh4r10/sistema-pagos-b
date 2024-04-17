@@ -8,8 +8,10 @@ class AuthUser(AbstractUser):
         'TipoUsuario',  
         on_delete=models.CASCADE,
         related_name='tipo_usuario',
-        blank=True,
-        null=True,
+        blank=False,
+        null=False,
+        default=2,
+        db_column='id_tipo_usuario'
     )
 
     # Añade estos atributos para evitar el conflicto con los atributos de AbstractUser
